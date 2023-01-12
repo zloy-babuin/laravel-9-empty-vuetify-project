@@ -12,7 +12,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      itemsPerPage: 4,
+      items: [{
+        name: 'Frozen Yogurt',
+        calories: 159,
+        fat: 6.0,
+        carbs: 24,
+        protein: 4.0,
+        sodium: 87,
+        calcium: '14%',
+        iron: '1%'
+      }, {
+        name: 'Ice cream sandwich',
+        calories: 237,
+        fat: 9.0,
+        carbs: 37,
+        protein: 4.3,
+        sodium: 129,
+        calcium: '8%',
+        iron: '1%'
+      }, {
+        name: 'Eclair',
+        calories: 262,
+        fat: 16.0,
+        carbs: 23,
+        protein: 6.0,
+        sodium: 337,
+        calcium: '6%',
+        iron: '7%'
+      }, {
+        name: 'Cupcake',
+        calories: 305,
+        fat: 3.7,
+        carbs: 67,
+        protein: 4.3,
+        sodium: 413,
+        calcium: '3%',
+        iron: '8%'
+      }]
+    };
+  }
+});
 
 /***/ }),
 
@@ -31,17 +74,89 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_vm._v("\n    welcome!\n    "), _c("v-btn", {
-    staticClass: "my-2",
+  return _c("v-container", {
     attrs: {
-      color: "primary"
+      fluid: ""
     }
-  }, [_vm._v("Button")]), _vm._v(" "), _c("v-alert", {
+  }, [_c("v-data-iterator", {
     attrs: {
-      dismissible: "",
-      type: "success"
-    }
-  }, [_vm._v("hi!")])], 1);
+      items: _vm.items,
+      "items-per-page": _vm.itemsPerPage,
+      "hide-default-footer": ""
+    },
+    on: {
+      "update:itemsPerPage": function updateItemsPerPage($event) {
+        _vm.itemsPerPage = $event;
+      },
+      "update:items-per-page": function updateItemsPerPage($event) {
+        _vm.itemsPerPage = $event;
+      }
+    },
+    scopedSlots: _vm._u([{
+      key: "header",
+      fn: function fn() {
+        return [_c("v-toolbar", {
+          staticClass: "mb-2",
+          attrs: {
+            color: "indigo darken-5",
+            dark: "",
+            flat: ""
+          }
+        }, [_c("v-toolbar-title", [_vm._v("This is a header")])], 1)];
+      },
+      proxy: true
+    }, {
+      key: "default",
+      fn: function fn(props) {
+        return [_c("v-row", _vm._l(props.items, function (item) {
+          return _c("v-col", {
+            key: item.name,
+            attrs: {
+              cols: "12",
+              sm: "6",
+              md: "4",
+              lg: "3"
+            }
+          }, [_c("v-card", [_c("v-card-title", {
+            staticClass: "subheading font-weight-bold"
+          }, [_vm._v("\n                            " + _vm._s(item.name) + "\n                        ")]), _vm._v(" "), _c("v-divider"), _vm._v(" "), _c("v-list", {
+            attrs: {
+              dense: ""
+            }
+          }, [_c("v-list-item", [_c("v-list-item-content", [_vm._v("Calories:")]), _vm._v(" "), _c("v-list-item-content", {
+            staticClass: "align-end"
+          }, [_vm._v("\n                                    " + _vm._s(item.calories) + "\n                                ")])], 1), _vm._v(" "), _c("v-list-item", [_c("v-list-item-content", [_vm._v("Fat:")]), _vm._v(" "), _c("v-list-item-content", {
+            staticClass: "align-end"
+          }, [_vm._v("\n                                    " + _vm._s(item.fat) + "\n                                ")])], 1), _vm._v(" "), _c("v-list-item", [_c("v-list-item-content", [_vm._v("Carbs:")]), _vm._v(" "), _c("v-list-item-content", {
+            staticClass: "align-end"
+          }, [_vm._v("\n                                    " + _vm._s(item.carbs) + "\n                                ")])], 1), _vm._v(" "), _c("v-list-item", [_c("v-list-item-content", [_vm._v("Protein:")]), _vm._v(" "), _c("v-list-item-content", {
+            staticClass: "align-end"
+          }, [_vm._v("\n                                    " + _vm._s(item.protein) + "\n                                ")])], 1), _vm._v(" "), _c("v-list-item", [_c("v-list-item-content", [_vm._v("Sodium:")]), _vm._v(" "), _c("v-list-item-content", {
+            staticClass: "align-end"
+          }, [_vm._v("\n                                    " + _vm._s(item.sodium) + "\n                                ")])], 1), _vm._v(" "), _c("v-list-item", [_c("v-list-item-content", [_vm._v("Calcium:")]), _vm._v(" "), _c("v-list-item-content", {
+            staticClass: "align-end"
+          }, [_vm._v("\n                                    " + _vm._s(item.calcium) + "\n                                ")])], 1), _vm._v(" "), _c("v-list-item", [_c("v-list-item-content", [_vm._v("Iron:")]), _vm._v(" "), _c("v-list-item-content", {
+            staticClass: "align-end"
+          }, [_vm._v("\n                                    " + _vm._s(item.iron) + "\n                                ")])], 1)], 1)], 1)], 1);
+        }), 1)];
+      }
+    }, {
+      key: "footer",
+      fn: function fn() {
+        return [_c("v-toolbar", {
+          staticClass: "mt-2",
+          attrs: {
+            color: "indigo",
+            dark: "",
+            flat: ""
+          }
+        }, [_c("v-toolbar-title", {
+          staticClass: "subheading"
+        }, [_vm._v("\n                    This is a footer\n                ")])], 1)];
+      },
+      proxy: true
+    }])
+  })], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
